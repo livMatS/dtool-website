@@ -6,19 +6,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #4B0082;
-    width: 100%;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .logo {
@@ -30,6 +31,21 @@ header {
 h1 {
     margin: 0;
     color: white;
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 .container {
@@ -39,6 +55,10 @@ h1 {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: auto;
+}
+
+h2 {
+    color: #4B0082;
 }
 
 table {
@@ -66,4 +86,26 @@ td ul {
 
 td ul li {
     margin-bottom: 5px;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links ul li {
+    margin-bottom: 5px;
+}
+
+.links a {
+    color: #4B0082;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
 }

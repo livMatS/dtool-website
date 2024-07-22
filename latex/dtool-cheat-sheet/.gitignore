@@ -1,0 +1,9 @@
+*.aux
+*.dvi
+*.pdf
+*.fdb_latexmk
+*.fls
+*.log
+*.png
+*.synctex.gz
+_minted*/

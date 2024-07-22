@@ -1,0 +1,233 @@
+\documentclass{standalone}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{chains}
+\usetikzlibrary{fit}
+\usetikzlibrary{matrix}
+
+\begin{document}
+\ifdefined\HCode
+  \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}
+\fi 
+\def\layersep{2cm}
+
+\begin{tikzpicture}[
+	every node/.style={font=\sffamily, anchor=south},
+]
+
+\definecolor{fg-scope}{HTML}{ffffff}
+\definecolor{bg-scope}{HTML}{70ad47}
+
+\definecolor{fg-terminal}{HTML}{666666}
+\definecolor{bg-terminal}{HTML}{efefef}
+
+\definecolor{fg-python}{HTML}{244c6f}
+\definecolor{bg-python}{HTML}{eff7ff}
+
+\definecolor{fg-gui}{HTML}{729fcf}
+\definecolor{bg-gui}{HTML}{eef6ff}
+
+\definecolor{fg-webapp}{HTML}{389d70}
+\definecolor{bg-webapp}{HTML}{dbffef}
+
+\definecolor{fg-restapi}{HTML}{4d5a31}
+\definecolor{bg-restapi}{HTML}{e4ffa7}
+
+\definecolor{fg-flask}{HTML}{1a6c73}
+\definecolor{bg-flask}{HTML}{d5fbff}
+
+\definecolor{fg-database}{HTML}{00bcf2}
+\definecolor{bg-database}{HTML}{e5faff}
+
+\definecolor{fg-mongodb}{HTML}{13aa52}
+\definecolor{bg-mongodb}{HTML}{e3ffef}
+
+\definecolor{fg-dataset}{HTML}{95319b}
+\definecolor{bg-dataset}{HTML}{f5ecff}
+
+\matrix[matrix of nodes, nodes in empty cells, row sep=5mm, column sep=5mm,
+        nodes={minimum width=5cm, minimum height=1.2cm, anchor=south},
+        row 1/.style={
+           nodes={
+              minimum height=0.6cm
+           }
+        },
+        row 2/.style={
+           nodes={
+              minimum height=0.6cm
+           }
+        }] (m) {
+    & & & & \\
+    & & & & \\
+    & & & & \\
+    & & & & \\
+    & & & & \\
+    & & & & \\
+    & & & & \\
+};
+
+% lookup side
+
+% user interaction
+\node[fit=(m-1-3)(m-1-5),
+      fill=bg-scope,
+      text=fg-scope] (user-interaction) {\bfseries user interaction};
+      
+% automated execution
+\node[fit=(m-2-1)(m-2-3),
+      fill=bg-scope,
+      text=fg-scope] (automated-execution) {\bfseries automated execution};
+
+% terminal
+\node[fit=(m-3-3)(m-3-3),
+      fill=bg-terminal, 
+      text=fg-terminal,
+      rounded corners] (dtool-cli) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node (terminal-icon) {\includegraphics[width=0.8cm]{icons/terminal.pdf}};
+  \node[text=fg-terminal, 
+        anchor=west, 
+        font=\bfseries] at (terminal-icon.east) {\href{https://dtool.readthedocs.io}{dtool CLI}};
+  \end{tikzpicture}
+};
+
+% dtool gui
+\node[fit=(m-3-4)(m-3-4),
+      fill=bg-gui, 
+      text=fg-gui,
+      rounded corners] (dtool-gui) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node[anchor=west] (gui-icon) {\includegraphics[width=0.8cm]{icons/gtk.pdf}};
+  \node[text=fg-gui, 
+        anchor=west, 
+        font=\bfseries] at (gui-icon.east) {\href{https://dtool-lookup-gui.readthedocs.io}{dtool GUI}};
+  \end{tikzpicture}
+};
+
+% dtool-lookup-api
+\node[fit=(m-4-2)(m-4-4),
+      fill=bg-python,
+      text=fg-python,
+      rounded corners] (dtool-lookup-api) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node (restapi-icon) {\includegraphics[width=0.8cm]{icons/python.pdf}};
+  \node[text=fg-python,
+        anchor=west,
+        font=\bfseries] at (restapi-icon.east) {\href{https://github.com/livMatS/dtool-lookup-api}{dtool-lookup-api} (Python API)};
+  \end{tikzpicture}
+};
+
+% vue webapp
+\node[fit=(m-3-5)(m-4-5),
+      fill=bg-webapp,
+      text=fg-webapp,
+      rounded corners] (dserver) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node (webapp-icon) {\includegraphics[width=0.8cm]{icons/vuejs.pdf}};
+  \node[text=fg-webapp,
+        anchor=west,
+        font=\bfseries] at (webapp-icon.east) {\href{https://github.com/jic-dtool/dtool-lookup-webapp}{Vue.js web app}};
+  \end{tikzpicture}
+};
+
+% REST API
+\node[fit=(m-5-1)(m-5-5),
+      fill=bg-restapi,
+      text=fg-restapi,
+      rounded corners] (dserver) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node (restapi-icon) {\includegraphics[width=0.8cm]{icons/openapi.pdf}};
+  \node[text=fg-restapi,
+        anchor=west,
+        font=\bfseries] at (restapi-icon.east) {\href{https://dserver.readthedocs.io}{dserver} (OpenAPI-compliant \href{https://demo.dtool.dev/lookup/doc/swagger}{REST API})};
+  \end{tikzpicture}
+};
+
+% dservercore
+\node[fit=(m-6-1)(m-6-1),
+      fill=bg-flask,
+      text=fg-flask,
+      rounded corners] (dservercore) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node (flask-icon) {\includegraphics[width=0.8cm]{icons/flask.pdf}};
+  \node[text=fg-flask,
+        anchor=west,
+        font=\bfseries] at (flask-icon.east) {\href{https://dservercore.readthedocs.io}{dservercore}};
+  \end{tikzpicture}
+};
+
+% dserver-search-plugin
+\node[fit=(m-6-2)(m-6-2),
+      fill=bg-flask,
+      text=fg-flask,
+      rounded corners] (dserver-search-plugin) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node[text=fg-flask,
+        font=\bfseries] {\href{https://github.com/livMatS/dserver-search-plugin-mongo}{dserver-search-plugin-mongo}};
+  \end{tikzpicture}
+};
+
+% dserver-retrieve-plugin
+\node[fit=(m-6-3)(m-6-3),
+      fill=bg-flask,
+      text=fg-flask,
+      rounded corners] (dserver-retrieve-plugin) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node[text=fg-flask,
+        font=\bfseries] {\href{https://github.com/livMatS/dserver-retrieve-plugin-mongo}{dserver-retrieve-plugin-mongo}};
+  \end{tikzpicture}
+};
+
+% other plugins
+\node[fit=(m-6-4)(m-6-5),
+      fill=bg-flask,
+      text=fg-flask,
+      rounded corners] (other-dserver-plugins) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node[text=fg-flask,
+        font=\bfseries] {other server-side plugins \dots};
+  \end{tikzpicture}
+};
+
+% sql-database
+\node[fit=(m-7-1)(m-7-1),
+      fill=bg-database, 
+      text=fg-database,
+      rounded corners] (sqldb) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node(sql-icon){\includegraphics[width=0.8cm]{icons/sql.pdf}};
+  \node[text=fg-database,
+        anchor=west, 
+        font=\bfseries] at (sql-icon.east) {core database};
+  \end{tikzpicture}
+};
+
+% mongodb
+\node[fit=(m-7-2)(m-7-3),
+      fill=bg-mongodb, 
+      text=fg-mongodb,
+      rounded corners] (mongodb) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node(mongodb-icon){\includegraphics[width=0.8cm]{icons/mongodb.pdf}};
+  \node[text=fg-mongodb,
+        anchor=west,
+        font=\bfseries] at (mongodb-icon.east) {database with searchable and retrievable metadata};
+  \end{tikzpicture}
+};
+
+% other databases
+\node[fit=(m-7-4)(m-7-5),
+      fill=bg-terminal, 
+      text=fg-terminal,
+      rounded corners] (other) {
+  \begin{tikzpicture}[inner ysep=-12pt]
+  \node (database-icon) {\includegraphics[width=0.8cm]{icons/database.pdf}};
+  \node[text=fg-terminal,
+        anchor=west,
+        font=\bfseries] at (database-icon.east) {other database technologies \dots};
+  \end{tikzpicture}
+};
+
+\end{tikzpicture}
+
+\end{document}

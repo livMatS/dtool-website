@@ -25,7 +25,7 @@ jobs:
       - name: Build dserver ecosystem pdf
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: ecosystem_server.tex
+          root_file: ecosystem_dserver.tex
           working_directory: latex/ecosystem
 
       - name: Upload artifact

@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     tables.forEach(table => {
         table.addEventListener('click', function(event) {
-// sourcery skip: unused-skip-comment
-              const {target} = event;
+            const target = event.target;
 
             if (target.tagName === 'TD') {
                 const originalContent = target.innerHTML;

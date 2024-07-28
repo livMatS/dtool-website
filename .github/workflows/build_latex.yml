@@ -1,0 +1,38 @@
+name: Build pdfs
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  build_via_pandoc:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build dtool ecosystem pdf
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ecosystem_dtool.tex
+          working_directory: latex/ecosystem
+
+
+      - name: Build dserver ecosystem pdf
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ecosystem_dserver.tex
+          working_directory: latex/ecosystem
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          # Upload entire repository
+          path: |
+            latex/ecosystem/ecosystem_dtool.pdf
+            latex/ecosystem/ecosystem_dserver.pdf
+         

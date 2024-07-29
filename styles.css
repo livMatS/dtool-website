@@ -1,25 +1,28 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white;
-    color: #4B0082;
+    color: #4B0082; /* Lilac color */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #4B0082;
+    background-color: #C8A2C8; /* Lilac color */
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    flex-wrap: wrap;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -31,12 +34,14 @@ header {
 h1 {
     margin: 0;
     color: white;
-    flex-grow: 1;
+    font-size: 1.5em;
 }
 
 nav {
     display: flex;
+    justify-content: center;
     gap: 20px;
+    flex: 1;
 }
 
 nav a {
@@ -48,64 +53,156 @@ nav a:hover {
     text-decoration: underline;
 }
 
-.container {
-    margin-top: 80px; /* Adjust based on header height */
+main {
     width: 80%;
     background: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-}
-
-h2 {
-    color: #4B0082;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #4B0082;
-    color: white;
-}
-
-td ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-td ul li {
-    margin-bottom: 5px;
-}
-
-.links {
     margin-top: 20px;
 }
 
-.links ul {
-    list-style-type: none;
-    padding: 0;
+section {
+    margin-bottom: 40px;
 }
 
-.links ul li {
-    margin-bottom: 5px;
+section h2 {
+    color: #C8A2C8; /* Lilac color */
+    text-align: center;
 }
 
-.links a {
+.intro-text {
+    font-size: 1.1em;
+    line-height: 1.6;
     color: #4B0082;
-    text-decoration: none;
+    margin: 10px 0;
+    font-family: 'Georgia', serif;
 }
 
-.links a:hover {
-    text-decoration: underline;
+.dtool-grid, .dserver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin-top: 20px;
+}
+
+.scope {
+    grid-column: span 4;
+    background-color: #70ad47;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+    color: #666666;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.block img {
+    margin-right: 10px;
+}
+
+.gui {
+    background-color: #eef6ff;
+    color: #729fcf;
+}
+
+.python-api {
+    background-color: #eff7ff;
+    color: #244c6f;
+    grid-column: span 4;
+}
+
+.storage-broker {
+    background-color: #f5ecff;
+    color: #95319b;
+}
+
+.file-system {
+    background-color: #efefef;
+    color: #666666;
+}
+
+.network-share {
+    background-color: #fff8d5;
+    color: #9c8735;
+}
+
+.object-storage {
+    background-color: #ffe8e5;
+    color: #7b1d13;
+}
+
+.other-infrastructure {
+    background-color: #efefef;
+    color: #666666;
+}
+
+.webapp {
+    background-color: #dbffef;
+    color: #389d70;
+}
+
+.restapi {
+    background-color: #e4ffa7;
+    color: #4d5a31;
+    grid-column: span 4;
+}
+
+.flask {
+    background-color: #d5fbff;
+    color: #1a6c73;
+}
+
+.search-plugin, .retrieve-plugin, .other-plugins, .database, .mongodb, .other-database {
+    background-color: #e5faff;
+    color: #00bcf2;
+}
+
+.search-plugin, .retrieve-plugin, .other-plugins {
+    background-color: #b3e5fc;
+}
+
+.mongodb {
+    background-color: #e3ffef;
+    color: #13aa52;
+}
+
+.other-database {
+    background-color: #efefef;
+    color: #666666;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    main {
+        width: 95%;
+        margin-top: 120px; /* Adjust based on header height */
+    }
+    .dtool-grid, .dserver-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

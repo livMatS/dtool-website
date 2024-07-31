@@ -5,7 +5,7 @@ input_directory="."
 # Directory to save the PNG files
 output_directory="."
 # Desired size of the output PNG icons
-icon_size="128x128"
+icon_size="64x64"
 
 # Create the output directory if it does not exist
 mkdir -p "$output_directory"

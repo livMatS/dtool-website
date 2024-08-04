@@ -1,8 +1,9 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    font-family: Arial, sans-serif;
     background-color: white;
-    color: #4B0082; /* Lilac color */
+    color: #4B0082;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +14,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #C8A2C8; /* Lilac color */
+    background-color: #C8A2C8;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -66,7 +67,7 @@ section {
 }
 
 section h2 {
-    color: #C8A2C8; /* Lilac color */
+    color: #C8A2C8;
     text-align: center;
 }
 
@@ -75,10 +76,17 @@ section h2 {
     line-height: 1.6;
     color: #4B0082;
     margin: 10px 0;
-    font-family: 'Georgia', serif;
 }
 
-.dtool-grid, .dserver-grid {
+.dtool-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin-top: 20px;
+}
+
+.dserver-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -115,6 +123,7 @@ section h2 {
 .gui {
     background-color: #eef6ff;
     color: #729fcf;
+    /* margin-right: 10pt; */
 }
 
 .python-api {
@@ -183,7 +192,28 @@ section h2 {
     color: #666666;
 }
 
-/* Responsive styles */
+.welcome-cover {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(200, 162, 200, 0.7); /* Lilac semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3em;
+    animation: fadeIn 2s ease-out;
+    z-index: 101; /* Ensure it is above all content */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -200,9 +230,26 @@ section h2 {
     }
     main {
         width: 95%;
-        margin-top: 120px; /* Adjust based on header height */
+        margin-top: 120px;
     }
     .dtool-grid, .dserver-grid {
         grid-template-columns: repeat(1, 1fr);
+    }
+    footer {
+        width: 100%;
+        padding: 20px 0;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #eaeaea;
+    }
+    .funding-badges a {
+        margin: 0 15px;
+    }
+    .funding-badges img {
+        height: 50px;
+        width: auto;
+        vertical-align: middle;
     }
 }

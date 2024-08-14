@@ -1,15 +1,4 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const welcomeCover = document.querySelector('.welcome-cover');
-    if (welcomeCover) {
-        setTimeout(() => {
-            welcomeCover.style.opacity = '0';
-            setTimeout(() => {
-                welcomeCover.style.display = 'none'; // Ensures the space is reclaimed
-                welcomeCover.remove(); // Removes the element from the DOM
-            }, 1000); // Wait for the fade-out transition
-        }, 5000); // Display cover for 5 seconds
-    }
-
     const tables = document.querySelectorAll('table');
     tables.forEach(table => {
         table.addEventListener('click', function(event) {

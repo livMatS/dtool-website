@@ -51,10 +51,20 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent; /* Default no underline */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background-color: #A66BB7; /* Lighter purple for hover */
+}
+
+nav a.active {
+    background-color: #4B0082; /* Dark purple for the active section */
+    color: white;
+    border-bottom: 2px solid #4B0082; /* Underline for the active section */
 }
 
 /* Main Content Styles */

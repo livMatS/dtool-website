@@ -14,7 +14,6 @@
         </div>
         <nav class="header-right">
             <a href="index.html">About</a>
-            
             <a href="development.html">Development</a>
             <a href="publications.html">Publications</a>
         </nav>
@@ -23,40 +22,46 @@
         <section id="dtool">
             <h2>dtool</h2>
             <div class="dtool-grid">
-                <div class="scope automated-execution">user interaction</div>
-                <div class="scope user-interaction">automated execution</div>
+                <div class="block user-interaction">user interaction</div>
+                <div class="block automated-execution">automated execution</div>
                 <div class="block terminal">
-                    <img src="icons/terminal.png">
+                    <img src="icons/terminal.png" alt="Terminal icon">
                     <span><a href="https://dtool.readthedocs.io">dtool CLI</a></span>
                 </div>
                 <div class="block gui">
-                    <img src="icons/gtk.png">
+                    <img src="icons/gtk.png" alt="GUI icon">
                     <span><a href="https://dtool-lookup-gui.readthedocs.io">dtool GUI</a></span>
                 </div>
                 <div class="block python-api">
-                    <img src="icons/python.png">
+                    <img src="icons/python.png" alt="Python icon">
                     <span><a href="https://dtoolcore.readthedocs.io/en/latest/">dtoolcore (Python API)</a></span>
                 </div>
                 <div class="block storage-broker">
-                    <img src="icons/python.png">
-                    <span><a href="https://github.com/jic-dtool/dtool-smb">dtool-smb</a></span>
+                    <div class="storage-disk">
+                        <img src="icons/python.png" alt="Python icon">
+                        <span>disk storage broker</span>
+                    </div>
+                    <div class="block storage-item smb">
+                        <span><a href="https://github.com/jic-dtool/dtool-smb">dtool-smb</a></span>
+                    </div>
+                    <div class="block storage-item s3">
+                        <span><a href="https://github.com/jic-dtool/dtool-s3">dtool-s3</a></span>
+                    </div>
+                    <div class="block storage-item other">
+                        <span><a href="https://dtool.readthedocs.io/en/latest/installation.html">other storage brokers...</a></span>
+                    </div>
                 </div>
-                <div class="block storage-broker">
-                    <span><a href="https://github.com/jic-dtool/dtool-s3">dtool-s3</a></span>
-                </div>
-                <div class="block storage-broker">
-                    <span><a href="https://dtool.readthedocs.io/en/latest/installation.html">other storage brokers...</a></span>
-                </div>
+                
                 <div class="block file-system">
-                    <img src="images\file-system.png">
+                    <img src="images/file-system.png" alt="File system icon">
                     <span>classical file system</span>
                 </div>
                 <div class="block network-share">
-                    <img src="icons/smb.png">
+                    <img src="icons/smb.png" alt="SMB icon">
                     <span>Windows network share</span>
                 </div>
                 <div class="block object-storage">
-                    <img src="icons/amazon-s3.png">
+                    <img src="icons/amazon-s3.png" alt="S3 icon">
                     <span>S3 object storage</span>
                 </div>
                 <div class="block other-infrastructure">
@@ -67,30 +72,30 @@
         <section id="dserver">
             <h2>dServer</h2>
             <div class="dserver-grid">
-                <div class="scope automated-execution">user interaction</div>
-                <div class="scope user-interaction">automated execution</div>
+                <div class="block automated-execution">automated execution</div>
+                <div class="block user-interaction">user interaction</div>
                 <div class="block terminal">
-                    <img src="icons/terminal.png">
+                    <img src="icons/terminal.png" alt="Terminal icon">
                     <span><a href="https://dtool.readthedocs.io">dtool CLI</a></span>
                 </div>
                 <div class="block gui">
-                    <img src="icons/gtk.png">
+                    <img src="icons/gtk.png" alt="GUI icon">
                     <span><a href="https://dtool-lookup-gui.readthedocs.io">dtool GUI</a></span>
                 </div>
                 <div class="block python-api">
-                    <img src="icons/python.png">
+                    <img src="icons/python.png" alt="Python icon">
                     <span><a href="https://github.com/livMatS/dtool-lookup-api">dtool-lookup-api (Python API)</a></span>
                 </div>
                 <div class="block webapp">
-                    <img src="icons/vuejs.png">
+                    <img src="icons/vuejs.png" alt="Vue.js icon">
                     <span><a href="https://github.com/jic-dtool/dtool-lookup-webapp">Vue.js web app</a></span>
                 </div>
                 <div class="block restapi">
-                    <img src="icons/openapi.png">
+                    <img src="icons/openapi.png" alt="OpenAPI icon">
                     <span><a href="https://dserver.readthedocs.io">dserver (OpenAPI-compliant REST API)</a></span>
                 </div>
                 <div class="block flask">
-                    <img src="icons/flask.png">
+                    <img src="icons/flask.png" alt="Flask icon">
                     <span><a href="https://dservercore.readthedocs.io">dservercore</a></span>
                 </div>
                 <div class="block search-plugin">
@@ -103,15 +108,15 @@
                     <span>other server-side plugins...</span>
                 </div>
                 <div class="block database">
-                    <img src="icons/sql.png">
+                    <img src="icons/sql.png" alt="SQL icon">
                     <span>core database</span>
                 </div>
                 <div class="block mongodb">
-                    <img src="icons/mongodb.png">
+                    <img src="icons/mongodb.png" alt="MongoDB icon">
                     <span><a href="https://github.com/livMatS/dserver-search-plugin-mongo">database with searchable and retrievable metadata</a></span>
                 </div>
                 <div class="block other-database">
-                    <img src="icons/database.png">
+                    <img src="icons/database.png" alt="Database icon">
                     <span>other database technologies...</span>
                 </div>
             </div>

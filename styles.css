@@ -54,17 +54,17 @@ nav a {
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease, border-bottom 0.3s ease;
-    border-bottom: 2px solid transparent; /* Default no underline */
+    border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
-    background-color: #A66BB7; /* Lighter purple for hover */
+    background-color: #A66BB7;
 }
 
 nav a.active {
-    background-color: #4B0082; /* Dark purple for the active section */
+    background-color: #4B0082;
     color: white;
-    border-bottom: 2px solid #4B0082; /* Underline for the active section */
+    border-bottom: 2px solid #4B0082;
 }
 
 /* Main Content Styles */
@@ -74,7 +74,7 @@ main {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    flex: 1; /* Allow main content to grow and push footer down */
+    flex: 1;
 }
 
 section {
@@ -96,41 +96,147 @@ section h2 {
 /* DTool Grid Styles */
 .dtool-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto auto;
     gap: 10px;
-    margin-top: 20px;
-    background-image: url('ecosystem_lhs_only_with_storage_brokers.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.dtool-grid .block {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.dtool-grid .user-interaction {
+    grid-column: 3 / span 2;
+    grid-row: 1;
+    background-color: #8CC63F;
+    color: white;
+    justify-content: center;
+}
+
+.dtool-grid .automated-execution {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    background-color: #8CC63F;
+    color: white;
+    justify-content: center;
+}
+
+.dtool-grid .terminal {
+    grid-column: 3;
+    grid-row: 3;
+    justify-content: center;
+    background-color: #F2F2F2;
+    color: #666666;
+}
+
+.dtool-grid .gui {
+    grid-column: 4;
+    grid-row: 3;
+    justify-content: center;
+    background-color: #E6F3FF;
+    color: #244c6f;
+}
+
+.dtool-grid .python-api {
+    grid-column: 1 / span 4;
+    grid-row: 4;
+    background-color: #E6F3FF;
+    justify-content: center;
+    color: #244c6f;
+}
+
+.dtool-grid .block.storage-broker{
+    grid-column: 1;
+    grid-row: 5;
+    background-color: #E6F3FF;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #244c6f;
+}
+.block.storage-item smb{
+    grid-column: 2;
+    grid-row: 5;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E6F3FF;
+    color: #244c6f;
+}
+.block.storage-item s3{
+    grid-column: 3;
+    grid-row: 5;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E6F3FF;
+    color: #244c6f;
+}
+.block.storage-item other{
+    grid-column: 4;
+    grid-row: 5;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E6F3FF;
+    color: #244c6f;
+}
+.block.file-system,
+.block.network-share,
+.block.object-storage,
+.block.other-infrastructure {
+    margin-top: 10px;
+    padding: 10px;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.dtool-grid .block.file-system {
+    grid-row: 6;
+    background-color: #F2F2F2;
+    color: #666666;
+}
+
+.block.network-share {
+    grid-column:2 ;
+    grid-row: 6;
+    background-color: #FFF2CC;
+    color: #9c8735;
+}
+
+.block.object-storage {
+    grid-column: 3;
+    grid-row: 6;
+    background-color: #FFE6E6;
+    color: #7b1d13;
+}
+
+.block.other-infrastructure {
+    grid-column: 4;
+    grid-row:6 ;
+    background-color: #F2F2F2;
+    color: #666666;
 }
 
 /* DServer Grid Styles */
 .dserver-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Set 3 equal-width columns */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto auto auto;
     gap: 10px;
     margin-top: 20px;
 }
 
-/* Block Styles */
-.scope {
-    grid-column: span 3; /* Make the scope rows span all 3 columns */
-    background-color: #70ad47;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.block {
+.dserver-grid .block {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #efefef;
-    color: #666666;
     text-align: center;
     padding: 15px;
     font-weight: bold;
@@ -139,87 +245,100 @@ section h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.block img {
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
-}
-
-.block:hover {
+.dserver-grid .block:hover {
     transform: translateY(-5px);
 }
 
-/* Specific Block Styles */
-.gui {
-    background-color: #eef6ff;
+.dserver-grid .user-interaction {
+    grid-column: 3 / span 4;
+    background-color: #8CC63F;
+    color: white;
+}
+
+.dserver-grid .automated-execution {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    background-color: #8CC63F;
+    color: white;
+}
+
+.dserver-grid .terminal {
+    grid-column: 3;
+    grid-row: 3;
+    background-color: #F2F2F2;
+    color: #666666;
+}
+
+.dserver-grid .gui {
+    grid-column: 4;
+    grid-row: 3;
+    background-color: #E6F3FF;
     color: #729fcf;
 }
 
-.python-api {
-    background-color: #eff7ff;
+.dserver-grid .python-api {
+    grid-column: 2 / -1;
+    grid-row: 4;
+    background-color: #E6F3FF;
     color: #244c6f;
-    grid-column: span 2; /* Make Python API block span 2 columns */
 }
 
-.storage-broker {
-    background-color: #f5ecff;
-    color: #95319b;
-}
-
-.file-system {
-    background-color: #efefef;
-    color: #666666;
-}
-
-.network-share {
-    background-color: #fff8d5;
-    color: #9c8735;
-}
-
-.object-storage {
-    background-color: #ffe8e5;
-    color: #7b1d13;
-}
-
-.other-infrastructure {
-    background-color: #efefef;
-    color: #666666;
-}
-
-.webapp {
-    background-color: #dbffef;
+.dserver-grid .webapp {
+    grid-column: 5;
+    grid-row: 3;
+    background-color: #E6FFEF;
     color: #389d70;
-    grid-column: span 2; /* Make Webapp block span 2 columns */
 }
 
-.restapi {
-    background-color: #e4ffa7;
+.dserver-grid .restapi {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    background-color: #E6FFCC;
     color: #4d5a31;
-    grid-column: span 3; /* Make the REST API block span all 3 columns */
 }
 
-.flask {
-    background-color: #d5fbff;
+.dserver-grid .flask {
+    grid-column: 1;
+    grid-row: 7;
+    background-color: #E6F9FF;
     color: #1a6c73;
 }
 
-.search-plugin, .retrieve-plugin, .other-plugins {
-    background-color: #b3e5fc;
+.dserver-grid .search-plugin,
+.dserver-grid .retrieve-plugin,
+.dserver-grid .other-plugins {
+    grid-row: 7;
+    background-color: #E6F9FF;
     color: #00bcf2;
 }
 
-.mongodb {
-    background-color: #e3ffef;
+.dserver-grid .database {
+    grid-column: 1 / 3;
+    grid-row: 8;
+    background-color: #CCE5FF;
     color: #13aa52;
 }
 
-.core-database {
-    grid-column: span 2; /* Make core database block span 2 columns */
+.dserver-grid .mongodb {
+    grid-column: 3 / -1;
+    grid-row: 8;
+    background-color: #E6FFEF;
+    color: #13aa52;
 }
 
-.other-database {
-    background-color: #efefef;
+.dserver-grid .other-database {
+    grid-column: 1 / -1;
+    grid-row: 9;
+    background-color: #F2F2F2;
     color: #666666;
+}
+
+/* Adjust icon sizes */
+.dtool-grid .block img,
+.disc.storage.broker img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
 
 /* Funding Badge Styles */
@@ -229,7 +348,7 @@ section h2 {
     align-items: center;
     gap: 20px;
     padding: 20px;
-    margin-top: auto; /* Push the badges to the bottom of the page */
+    margin-top: auto;
 }
 
 .funding-badges img {
@@ -258,46 +377,11 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid #eaeaea;
+    margin-top: auto;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header-right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    main {
-        width: 95%;
-        margin-top: 120px;
-    }
-
-    .dtool-grid, .dserver-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .funding-badges img {
-        width: 50px;
-    }
-
-    footer {
-        padding: 20px 0;
-        background-color: #f8f9fa;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-top: 1px solid #eaeaea;
-    }
+footer p {
+    margin: 0;
+    color: #4B0082;
+    font-size: 0.9em;
 }

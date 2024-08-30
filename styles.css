@@ -97,28 +97,32 @@ section h2 {
 .dtool-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     gap: 10px;
-    margin-bottom: 20px;
-    width: 100%;
+    margin-top: 20px;
 }
 
 .dtool-grid .block {
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
     font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .dtool-grid .block:hover {
     transform: translateY(-5px);
 }
+
 .dtool-grid .user-interaction {
     grid-column: 3 / span 2;
     grid-row: 1;
     background-color: #8CC63F;
     color: white;
-    justify-content: center;
 }
 
 .dtool-grid .automated-execution {
@@ -126,13 +130,11 @@ section h2 {
     grid-row: 2;
     background-color: #8CC63F;
     color: white;
-    justify-content: center;
 }
 
 .dtool-grid .terminal {
     grid-column: 3;
     grid-row: 3;
-    justify-content: center;
     background-color: #F2F2F2;
     color: #666666;
 }
@@ -140,7 +142,6 @@ section h2 {
 .dtool-grid .gui {
     grid-column: 4;
     grid-row: 3;
-    justify-content: center;
     background-color: #E6F3FF;
     color: #244c6f;
 }
@@ -149,46 +150,55 @@ section h2 {
     grid-column: 1 / span 4;
     grid-row: 4;
     background-color: #E6F3FF;
-    justify-content: center;
     color: #244c6f;
 }
 
-.dtool-grid .block.storage-broker{
-    grid-column: 1;
+.dtool-grid .block.storage-broker {
+    display: flex;
+    justify-content: space-between;
     grid-row: 5;
-    background-color: #E6F3FF;
+    align-items: stretch;
+    background-color: transparent;
     margin-top: 10px;
+    padding: 0;
+    gap: 10px;
+}
+
+.block.storage-item {
+    flex: 1;
     padding: 10px;
     border-radius: 5px;
     color: #244c6f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.block.storage-item smb{
-    grid-column: 2;
-    grid-row: 5;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
+
+.block.storage-item.disk {
     background-color: #E6F3FF;
-    color: #244c6f;
+    grid-row: 5;
 }
-.block.storage-item s3{
+
+.block.storage-item.smb {
+    background-color: #E6F3FF;
+    grid-row: 5;
+    grid-column: 2 / span 1;
+}
+
+.block.storage-item.s3 {
+    background-color: #E6F3FF;
     grid-column: 3;
-    grid-row: 5;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #E6F3FF;
-    color: #244c6f;
 }
-.block.storage-item other{
-    grid-column: 4;
-    grid-row: 5;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
+
+.block.storage-item.other {
     background-color: #E6F3FF;
-    color: #244c6f;
 }
+
+.block.storage-item a {
+    color: #244c6f;
+    text-decoration: none;
+}
+
 .block.file-system,
 .block.network-share,
 .block.object-storage,
@@ -206,7 +216,7 @@ section h2 {
 }
 
 .block.network-share {
-    grid-column:2 ;
+    grid-column: 2;
     grid-row: 6;
     background-color: #FFF2CC;
     color: #9c8735;
@@ -221,15 +231,26 @@ section h2 {
 
 .block.other-infrastructure {
     grid-column: 4;
-    grid-row:6 ;
+    grid-row: 6;
     background-color: #F2F2F2;
     color: #666666;
 }
+
+/* Adjust icon sizes */
+/* .dtool-grid .block img,
+.dtool-grid .block.storage-broker img {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+} */
 
 /* DServer Grid Styles */
 .dserver-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto auto auto;
+    gap: 10px;
+    margin-top: 20px;
     grid-template-rows: auto auto auto auto auto;
     gap: 10px;
     margin-top: 20px;
@@ -341,8 +362,8 @@ section h2 {
 /* Adjust icon sizes */
 .dtool-grid .block img,
 .disc.storage.broker img {
-    width: 24px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
 }
 

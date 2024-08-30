@@ -236,21 +236,10 @@ section h2 {
     color: #666666;
 }
 
-/* Adjust icon sizes */
-/* .dtool-grid .block img,
-.dtool-grid .block.storage-broker img {
-    width: 90px;
-    height: 90px;
-    margin-right: 10px;
-} */
-
 /* DServer Grid Styles */
 .dserver-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto auto auto auto;
-    gap: 10px;
-    margin-top: 20px;
     grid-template-rows: auto auto auto auto auto;
     gap: 10px;
     margin-top: 20px;
@@ -342,14 +331,14 @@ section h2 {
     grid-column: 1 / 1;
     grid-row: 8;
     background-color: #CCE5FF;
-    color: #13aa52;
+    color: #00bcf2;
 }
 
 .dserver-grid .mongodb {
     grid-column: 2 / span 2;
     grid-row: 8;
     background-color: #E6FFEF;
-    color: #13aa52;
+    color: #88c4fd;
 }
 
 .dserver-grid .other-database {
@@ -366,7 +355,13 @@ section h2 {
     height: 50px;
     margin-right: 10px;
 }
-
+.dserver-grid .database img, 
+.python-api img , .terminal img, .gui img, .webapp img, .restapi img, .flask img, .other-database img, .mongodb img
+{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
 /* Funding Badge Styles */
 .funding-badges {
     display: flex;
